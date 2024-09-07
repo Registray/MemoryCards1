@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack{
-            CardView()
+            CardView(isFaceUp: true)
             CardView()
             CardView()
             CardView()
@@ -22,16 +22,21 @@ struct ContentView: View {
 }
 
 struct CardView: View {
+    @State var isFaceUp = false
+    
     var body: some View {
-        HStack{
-        ZStack(content: {
-            RoundedRectangle(cornerRadius: 12)
-                .foregroundColor(.white)
-            RoundedRectangle(cornerRadius: 12)
-                .strokeBorder(lineWidth: 2)
-            Text("🚁").font(.largeTitle)
-        })
-}
+        ZStack {
+            let base = RoundedRectangle(cornerRadius: 12)
+            if isFaceUp {
+                base.foregroundColor(.white)
+                base.strokeBorder(lineWidth: 2)
+                Text("🚁").font(.largeTitle)
+            } else {
+                base.fill()
+            }
+        }.onTapGesture {
+            isFaceUp.toggle()
+        }
     }
 
 
