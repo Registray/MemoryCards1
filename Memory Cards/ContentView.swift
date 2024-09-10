@@ -4,17 +4,30 @@
         //
         //  Created by Oleh Pauk on 07.09.2024.
         //
-        
         import SwiftUI
         
         
         struct ContentView: View {
-            let emojis = ["🚁","🚀","✈️","🛳","🚗","⛴","🚜","🚂","🚕","🚛","🚒","🛵","🏍","🛻","🚐"]
             
-            @State var cardCount: Int = 4
+//            static var themes: Array<Theme> = [
+//                Theme(name: "Cars", emojis: ["🚁","🚀","✈️","🛳","🚗","⛴","🚜","🚂","🚕","🚛","🚒","🛵","🏍","🛻","🚐"], numberOfPairsCards: 5,
+//                      color: "red"),
+//                Theme(name: "Balls", emojis: ["⚽️","🏀","🏈","⚾️","🥎","🎾","🏐","🏉"],
+//                      numberOfPairsCards: 4,
+//                      color: "green"),
+//                Theme(name: "heart", emojis: ["❤️","💙","💜","🖤","🤎","🤍","💛","💚"], numberOfPairsCards: 4, color: "blue")
+//            ] IT IS MADE FOR FUTURE!!
+            
+            @State var cardCount: Int = 10
+            
+            @State var emojis = ["🚁","🚀","✈️","🛳","🚗","⛴","🚜","🚂","🚕","🚛","🚒","🛵","🏍","🛻","🚐"]
+            @State var carTheme = ["🚁","🚀","✈️","🛳","🚗","⛴","🚜","🚂","🚕","🚛","🚒","🛵","🏍","🛻","🚐"]
+            @State var ballsTheme = ["⚽️","🏀","🏈","⚾️","🥎","🎾","🏐","🏉"]
+            @State var heartTheme = ["❤️","💙","💜","🖤","🤎","🤍","💛","💚"]
             
             var body: some View {
                 VStack{
+                    Text("MEMORIZE!").font(.largeTitle)
                     ScrollView{
                         cards
                     }
@@ -24,7 +37,7 @@
                 .padding()
             }
             var cards: some View {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 120)) ,GridItem()]) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
                     ForEach(0..<cardCount, id: \.self) { index in
                         CardView(content: emojis[index])
                             .aspectRatio(2/3, contentMode: .fit)
@@ -34,28 +47,47 @@
             }
             var cardCountAdjusters: some View {
                 HStack {
-                    cardAdder
                     Spacer()
-                    cardRemover
+                    themeChooser
                 }
                 .imageScale(.large)
                 .font(.largeTitle)
             }
             
-            func cardCountAdjuster(by offset: Int, symbol: String) -> some View {
-                Button(action: {
-                    cardCount += offset
-                }, label: {
-                    Image(systemName: symbol)
-                })
-                .disabled(cardCount + offset < 1 || cardCount + offset > emojis.count)
-            }
-            
-            var cardRemover: some View {
-                return cardCountAdjuster(by: -1, symbol: "rectangle.stack.badge.minus.fill")
-            }
-            var cardAdder: some View {
-                return cardCountAdjuster(by: +1, symbol: "rectangle.stack.badge.plus.fill")
+            var themeChooser: some View {
+                HStack {
+                    Button(action: {
+                        cardCount = carTheme.count
+                        emojis = carTheme.shuffled()
+                    }, label: {
+                        VStack {
+                        Image(systemName: "car")
+                            Text("Vehicles")
+                        }
+                    })
+                    Spacer()
+                    Button(action: {
+                        cardCount = ballsTheme.count
+                        emojis = ballsTheme.shuffled()
+                    }, label: {
+                        VStack {
+                        Image(systemName: "circle")
+                            Text("Balls")
+                        }
+                    })
+                    Spacer()
+                    Button(action: {
+                        cardCount = heartTheme.count
+                        emojis = heartTheme.shuffled()
+                    }, label: {
+                        VStack {
+                        Image(systemName: "heart")
+                            Text("Heart")
+                        }
+                    })
+                }
+                .font(.largeTitle)
+                .imageScale(.large)
             }
         }
         
@@ -76,24 +108,6 @@
                     isFaceUp.toggle()
                 }
             }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             struct ContentView_Previews: PreviewProvider {
                 static var previews: some View {

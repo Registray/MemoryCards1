@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F20FB7942C8FBB84008019A9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20FB7932C8FBB84008019A9 /* Theme.swift */; };
 		F264EBE62C8C4E3000655B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264EBE52C8C4E3000655B55 /* AppDelegate.swift */; };
 		F264EBE82C8C4E3000655B55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264EBE72C8C4E3000655B55 /* SceneDelegate.swift */; };
 		F264EBEA2C8C4E3000655B55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F264EBE92C8C4E3000655B55 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F20FB7932C8FBB84008019A9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F264EBE22C8C4E3000655B55 /* Memory Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Memory Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F264EBE52C8C4E3000655B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F264EBE72C8C4E3000655B55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				F264EBE52C8C4E3000655B55 /* AppDelegate.swift */,
 				F264EBE72C8C4E3000655B55 /* SceneDelegate.swift */,
 				F264EBE92C8C4E3000655B55 /* ContentView.swift */,
+				F20FB7932C8FBB84008019A9 /* Theme.swift */,
 				F264EBEB2C8C4E3B00655B55 /* Assets.xcassets */,
 				F264EBF02C8C4E3B00655B55 /* LaunchScreen.storyboard */,
 				F264EBF32C8C4E3B00655B55 /* Info.plist */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F264EBE62C8C4E3000655B55 /* AppDelegate.swift in Sources */,
+				F20FB7942C8FBB84008019A9 /* Theme.swift in Sources */,
 				F264EBE82C8C4E3000655B55 /* SceneDelegate.swift in Sources */,
 				F264EBEA2C8C4E3000655B55 /* ContentView.swift in Sources */,
 			);
